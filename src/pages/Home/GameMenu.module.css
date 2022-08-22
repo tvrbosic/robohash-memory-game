@@ -1,0 +1,20 @@
+@import '../../styles/Colors.css';
+
+.Container {
+  border-radius: .5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  background-color: white;
+}
+
+.MenuItem {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  margin-bottom: 1rem;
+}
+
+.MenuItem label {
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+}
