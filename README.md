@@ -1,2 +1,3 @@
-# robohash-memory-game
-Memory game which generates cards using RoboHash API.
+# RoboHash Memory Game
+> Memory game which generates cards using RoboHash API.
+---
