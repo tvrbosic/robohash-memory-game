@@ -7,14 +7,21 @@
   background-color: white;
 }
 
-.MenuItem {
+.InputMenuItem {
   display: grid;
   grid-template-columns: 1fr 2.5fr;
   margin-bottom: 1rem;
 }
 
-.MenuItem label {
+.InputMenuItem label {
   display: flex;
   font-weight: bold;
   align-items: center;
+}
+
+.MenuItem {
+  margin-bottom: 1rem;
+}
+.MenuItem:last-child {
+  margin-bottom: 0;
 }

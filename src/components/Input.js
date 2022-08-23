@@ -1,7 +1,14 @@
 import classes from './Input.module.css';
 
 const TextInput = (props) => {
-  return <input className={classes.TextInput} id={props.id} type='text' />
+  return (
+    <input
+      id={props.id}
+      type='text'
+      className={classes.TextInput}
+      placeholder={props.placeholder}
+    />
+  );
 };
 
 export default TextInput;

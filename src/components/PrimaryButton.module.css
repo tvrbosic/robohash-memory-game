@@ -1,0 +1,17 @@
+@import '../styles/Colors.css';
+
+.PrimaryButton {
+  width: 100%;
+  font-size: 1rem;
+  line-height: 2.2rem;
+  color: white;
+  background-color: var(--blue2);
+  border: none;
+  border-radius: 1rem;
+  transition: ease-in-out .3s;
+}
+
+
+.PrimaryButton:hover {
+  background-color: var(--blue1);
+}

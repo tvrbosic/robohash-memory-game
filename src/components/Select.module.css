@@ -1,15 +1,16 @@
-.TextInput {
+.Select {
   font-size: 1rem;
-  line-height: 1.5rem;
+  padding-block: 3px 4px;
   border-radius: 4px;
   border: 1px solid var(--gray1);
+  background-color: white;
 }
 
-.TextInput:hover {
+.Select:hover {
   border: 1px solid black;
 }
 
-.TextInput:focus {
+.Select:focus {
   border: 1px solid black;
   outline: 2px solid var(--gray2)
 }
