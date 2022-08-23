@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import classes from './GameMenu.module.css';
 import TextInput from '../../components/Input';
 import Select from '../../components/Select';
@@ -10,21 +12,31 @@ const boardSizes = [
 ];
 
 const GameMenu = () => {
+  let navigate = useNavigate();
+
+  const playClickHandler = () => {
+    navigate('/play');
+  };
+  
+  const scoreboardClickHandler = () => {
+    navigate('/scoreboard');
+  };
+
   return (
     <div className={classes.Container}>
       <div className={classes.InputMenuItem}>
-        <label for='username'>Username</label>
+        <label htmlFor='username'>Username</label>
         <TextInput id='username' placeholder='Enter username...'/>
       </div>
       <div className={classes.InputMenuItem}>
-        <label for='board-size'>Board size</label>
+        <label htmlFor='board-size'>Board size</label>
         <Select id='board-size' options={boardSizes} />
       </div>
       <div className={classes.MenuItem}>
-        <PrimaryButton text='Play' />
+        <PrimaryButton text='Play' onClick={playClickHandler}/>
       </div>
       <div className={classes.MenuItem}>
-        <PrimaryButton text='Scoreboard' />
+        <PrimaryButton text='Scoreboard' onClick={scoreboardClickHandler} />
       </div>
     </div>
   );
