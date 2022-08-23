@@ -1,0 +1,12 @@
+@import '../../styles/Colors.css';
+
+.Container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  color: white;
+  background-color: var(--blue2);
+}
+
+.PanelItem {
+}

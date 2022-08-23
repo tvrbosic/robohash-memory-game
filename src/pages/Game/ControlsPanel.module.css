@@ -1,0 +1,10 @@
+@import '../../styles/Colors.css';
+
+.Container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1rem;
+  padding: 1rem;
+  color: white;
+  background-color: var(--gray1);
+}

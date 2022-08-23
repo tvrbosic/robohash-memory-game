@@ -1,0 +1,6 @@
+@import '../../../styles/Colors.css';
+
+.Card {
+  height: 150px;
+  background-color: var(--gray3);
+}
