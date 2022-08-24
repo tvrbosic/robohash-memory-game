@@ -18,8 +18,8 @@ const GameMenu = () => {
     navigate('/play');
   };
   
-  const scoreboardClickHandler = () => {
-    navigate('/scoreboard');
+  const highscoresClickHandler = () => {
+    navigate('/highscores');
   };
 
   return (
@@ -36,7 +36,7 @@ const GameMenu = () => {
         <PrimaryButton text='Play' onClick={playClickHandler}/>
       </div>
       <div className={classes.MenuItem}>
-        <PrimaryButton text='Scoreboard' onClick={scoreboardClickHandler} />
+        <PrimaryButton text='Highscores' onClick={highscoresClickHandler} />
       </div>
     </div>
   );

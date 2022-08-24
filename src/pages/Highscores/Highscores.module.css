@@ -1,0 +1,35 @@
+@import '../../styles/Colors.css';
+
+.Container {
+  min-height: 100vh;
+  background-color: var(--gray3);
+}
+
+.Content {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.Heading {
+  margin-top: 0rem;
+  text-align: center;
+}
+
+.Description {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.ScoresTable {
+  list-style: none;
+  padding: 0;
+}
+
+.PlayerRecord {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}

@@ -1,0 +1,11 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+
+.Content {
+  padding: 1rem 20rem 0 20rem;
+}

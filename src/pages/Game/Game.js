@@ -5,10 +5,12 @@ import ControlsPanel from './ControlsPanel';
 
 const Game = () => {
   return (
-    <div>
+    <div className={classes.Container}>
       <StatusPanel />
-      <Grid />
-      <ControlsPanel />
+      <div className={classes.Content}>
+        <Grid />
+        <ControlsPanel />
+      </div>
     </div>
   );
 };
