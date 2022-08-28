@@ -18,6 +18,12 @@ const Highscores = () => {
     navigate('/');
   };
 
+  const sortedPlayerScores = (playerScores) => {
+    return playerScores.sort((a, b) => {
+      return b.score - a.score;
+    });
+  };
+
   return (
     <div className={styles.Container}>
       <div className={styles.Content}>
@@ -29,7 +35,7 @@ const Highscores = () => {
             <div className={styles.CenterColumn}>Player</div>
             <div className={styles.RightColumn}>Score</div>
           </div>
-          {samplePlayerScores.map((item, index) => {
+          {sortedPlayerScores(samplePlayerScores).map((item, index) => {
             return (
               <div className={styles.TableItem}>
                 <div className={styles.LeftColumn}>{index + 1}</div>
