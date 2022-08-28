@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import styles from './Highscores.module.css';
-import PrimaryButton from '../../components/PrimaryButton';
+import Button from '../../components/Button';
 
 const samplePlayerScores = [
   { id: 1, username: 'Player1', score: 375 },
@@ -22,20 +22,25 @@ const Highscores = () => {
     <div className={styles.Container}>
       <div className={styles.Content}>
         <h1 className={styles.Heading}>Highscores</h1>
-        <p>Describe how is player score calculated.</p>
-        <ul className={styles.ScoresTable}>
+        <p className={styles.Description}>Describe how is player score calculated.</p>
+        <div className={styles.ScoresTable}>
+          <div className={styles.TableHeader}>
+            <div className={styles.LeftColumn}>Position</div>
+            <div className={styles.CenterColumn}>Player</div>
+            <div className={styles.RightColumn}>Score</div>
+          </div>
           {samplePlayerScores.map((item, index) => {
             return (
-              <li key={item.id} className={styles.PlayerRecord}>
-                <span>{index + 1}</span>
-                <span>{item.username}</span>
-                <span>{item.score}</span>
-              </li>
+              <div className={styles.TableItem}>
+                <div className={styles.LeftColumn}>{index + 1}</div>
+                <div className={styles.CenterColumn}>{item.username}</div>
+                <div className={styles.RightColumn}>{item.score}</div>
+              </div>
             );
           })}
-        </ul>
-        <div>
-          <PrimaryButton text='Return to menu' onClick={returnClickHandler} />
+          <div className={styles.ButtonsPanel}>
+            <Button text='Return to menu' onClick={returnClickHandler} />
+          </div>
         </div>
       </div>
     </div>

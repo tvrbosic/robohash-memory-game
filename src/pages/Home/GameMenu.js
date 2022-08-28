@@ -4,7 +4,7 @@ import styles from './GameMenu.module.css';
 import useInput from '../../hooks/use-input';
 import TextInput from '../../components/Input';
 import Select from '../../components/Select';
-import PrimaryButton from '../../components/PrimaryButton';
+import Button from '../../components/Button';
 
 const boardSizes = [
   { id: 1, size: 'Small: 4x4' },
@@ -60,10 +60,10 @@ const GameMenu = () => {
         <Select id='board-size' options={boardSizes} />
       </div>
       <div className={styles.MenuItem}>
-        <PrimaryButton text='Play' onClick={playClickHandler} />
+        <Button text='Play' onClick={playClickHandler} />
       </div>
       <div className={styles.MenuItem}>
-        <PrimaryButton text='Highscores' onClick={highscoresClickHandler} />
+        <Button text='Highscores' onClick={highscoresClickHandler} />
       </div>
     </div>
   );

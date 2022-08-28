@@ -1,6 +1,6 @@
-import styles from './PrimaryButton.module.css';
+import styles from './Button.module.css';
 
-const PrimaryButton = (props) => {
+const Button = (props) => {
   return (
     <button className={styles.PrimaryButton} onClick={props.onClick}>
       {props.text}
@@ -8,4 +8,4 @@ const PrimaryButton = (props) => {
   );
 };
 
-export default PrimaryButton;
+export default Button;

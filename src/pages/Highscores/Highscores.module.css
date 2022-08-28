@@ -24,12 +24,47 @@
 }
 
 .ScoresTable {
-  list-style: none;
-  padding: 0;
+  padding: 2rem;
+  border-radius: .5rem;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.PlayerRecord {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: .5rem;
+.TableHeader, .TableItem {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  min-width: 20rem;
+  padding: 1rem;
+}
+
+.TableHeader {
+  font-weight: bold;
+  color: white;
+  background-color: var(--blue1);
+}
+
+.TableItem {
+  padding: .5rem 1rem;
+}
+
+.TableItem:nth-child(2n) {
+  background-color: var(--gray3);
+}
+
+.LeftColumn {
+  text-align: left;
+}
+
+.CenterColumn {
+  text-align: center;
+}
+
+.RightColumn {
+  text-align: right;
+}
+
+.ButtonsPanel {
+  margin-top: 3rem;
+  grid-column: 1 / span 3;
+
 }

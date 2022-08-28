@@ -31,7 +31,7 @@ const useInput = (validateInput) => {
 
   const hasError = !state.isValid && state.isTouched;
 
-  const onChangeHandler = (event) => {
+  const onChangeHandler = (event) => {  
     dispatch({
       type: 'CHANGE',
       payload: { value: event.target.value, isValid: validateInput(event.target.value) },

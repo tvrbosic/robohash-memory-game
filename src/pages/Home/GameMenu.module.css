@@ -28,10 +28,10 @@
 }
 
 .InvalidLabel {
-  color: var(--danger);
+  color: var(--red1);
 }
 
 .InvalidInput {
-  border: 1px solid var(--danger) !important;
-  background-color: #fddddd;
+  border: 1px solid var(--red1) !important;
+  background-color: var(--red3);
 } 

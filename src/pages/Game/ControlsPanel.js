@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import styles from './ControlsPanel.module.css';
-import PrimaryButton from '../../components/PrimaryButton';
+import Button from '../../components/Button';
 
 const ControlsPanel = () => {
   let navigate = useNavigate();
@@ -16,8 +16,8 @@ const ControlsPanel = () => {
 
   return (
     <div className={styles.Container}>
-      <PrimaryButton text='Back' onClick={backClickHandler} />
-      <PrimaryButton text='Reset' onClick={resetClickHandler} />
+      <Button text='Back' onClick={backClickHandler} />
+      <Button text='Reset' onClick={resetClickHandler} />
     </div>
   );
 };
