@@ -1,14 +1,37 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 
-const useInput = (initialValue) => {
-  const [value, setValue] = useState(initialValue);
+const initialState = {
+  value: '',
+  isValid: null,
+};
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
+const inputStateReducer = (state, action) => {
+  if (action.type === 'CHANGE') {
+    console.log(action.payload)
+    return { value: action.payload.value, isValid: action.payload.isValid };
+  }
+  if (action.type === 'RESET') {
+    return { value: '', isValid: null };
+  }
+  return initialState;
+};
+
+const useInput = (validateInput) => {
+  const [state, dispatch] = useReducer(inputStateReducer, initialState);
+
+  const onChangeHandler = (event) => {
+    dispatch({ type: 'CHANGE', payload: { value: event.target.value, isValid: validateInput(event.target.value) } });
   };
+
+  const onResetHandler = () => {
+    dispatch({ type: 'RESET' });
+  };
+
   return {
-    value,
-    onChange: handleChange,
+    value: state.value,
+    isValid: state.isValid,
+    onChange: onChangeHandler,
+    reset: onResetHandler,
   };
 };
 

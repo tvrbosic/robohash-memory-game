@@ -12,13 +12,23 @@ const boardSizes = [
   { id: 3, size: 'Large: 6x6' },
 ];
 
+const isNotEmpty = (value) => value.trim() !== '';
+
 const GameMenu = () => {
-  const usernameInput = useInput('');
+  const {
+    value: username,
+    isValid: usernameValid,
+    onChange: usernameChangeHandler,
+    reset: usernameResetHandler,
+  } = useInput(isNotEmpty);
 
   let navigate = useNavigate();
 
   const playClickHandler = () => {
-    navigate('/play');
+    if (usernameValid) {
+      navigate('/play');
+    }
+    console.log('Invalid');
   };
 
   const highscoresClickHandler = () => {
@@ -32,8 +42,8 @@ const GameMenu = () => {
         <TextInput
           id='username'
           placeholder='Enter username...'
-          value={usernameInput.value}
-          onChange={usernameInput.onChange}
+          value={username}
+          onChange={usernameChangeHandler}
         />
       </div>
       <div className={classes.InputMenuItem}>
