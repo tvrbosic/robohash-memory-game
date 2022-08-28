@@ -2,16 +2,26 @@ import { useReducer } from 'react';
 
 const initialState = {
   value: '',
-  isValid: null,
+  isValid: false,
+  isTouched: false,
 };
 
 const inputStateReducer = (state, action) => {
   if (action.type === 'CHANGE') {
-    console.log(action.payload)
-    return { value: action.payload.value, isValid: action.payload.isValid };
+    return {
+      value: action.payload.value,
+      isValid: action.payload.isValid,
+      isTouched: state.isTouched,
+    };
+  }
+  if (action.type === 'BLUR') {
+    return { value: state.value, isValid: state.isValid, isTouched: true };
+  }
+  if (action.type === 'VALIDATE') {
+    return { value: state.value, isValid: action.payload.isValid, isTouched: true };
   }
   if (action.type === 'RESET') {
-    return { value: '', isValid: null };
+    return { value: '', isValid: false, isTouched: false };
   }
   return initialState;
 };
@@ -19,8 +29,21 @@ const inputStateReducer = (state, action) => {
 const useInput = (validateInput) => {
   const [state, dispatch] = useReducer(inputStateReducer, initialState);
 
+  const hasError = !state.isValid && state.isTouched;
+
   const onChangeHandler = (event) => {
-    dispatch({ type: 'CHANGE', payload: { value: event.target.value, isValid: validateInput(event.target.value) } });
+    dispatch({
+      type: 'CHANGE',
+      payload: { value: event.target.value, isValid: validateInput(event.target.value) },
+    });
+  };
+
+  const validateHandler = () => {
+    dispatch({ type: 'VALIDATE', payload: { isValid: validateInput(state.value) } });
+  };
+
+  const onBlurHandler = () => {
+    dispatch({ type: 'BLUR' });
   };
 
   const onResetHandler = () => {
@@ -30,7 +53,11 @@ const useInput = (validateInput) => {
   return {
     value: state.value,
     isValid: state.isValid,
+    isTouched: state.isTouched,
+    hasError,
     onChange: onChangeHandler,
+    onBlur: onBlurHandler,
+    validate: validateHandler,
     reset: onResetHandler,
   };
 };

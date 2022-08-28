@@ -1,4 +1,4 @@
-import classes from './Grid.module.css';
+import styles from './Grid.module.css';
 import Card from './Card';
 
 const Grid = () => {
@@ -6,7 +6,7 @@ const Grid = () => {
     return [...Array(16)].map((elementInArray, index) => <Card key={index}>Test</Card>);
   };
 
-  return <div className={classes.Container}>{generateCards()}</div>;
+  return <div className={styles.Container}>{generateCards()}</div>;
 };
 
 export default Grid;

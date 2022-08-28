@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import classes from './ControlsPanel.module.css';
+import styles from './ControlsPanel.module.css';
 import PrimaryButton from '../../components/PrimaryButton';
 
 const ControlsPanel = () => {
@@ -15,7 +15,7 @@ const ControlsPanel = () => {
   };
 
   return (
-    <div className={classes.Container}>
+    <div className={styles.Container}>
       <PrimaryButton text='Back' onClick={backClickHandler} />
       <PrimaryButton text='Reset' onClick={resetClickHandler} />
     </div>

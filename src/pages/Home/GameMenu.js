@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import classes from './GameMenu.module.css';
+import styles from './GameMenu.module.css';
 import useInput from '../../hooks/use-input';
 import TextInput from '../../components/Input';
 import Select from '../../components/Select';
@@ -17,18 +17,24 @@ const isNotEmpty = (value) => value.trim() !== '';
 const GameMenu = () => {
   const {
     value: username,
-    isValid: usernameValid,
+    isTouched: usernameTouched,
+    hasError: usernameHasError,
     onChange: usernameChangeHandler,
-    reset: usernameResetHandler,
+    onBlur: usernameBlurHandler,
+    validate: validateUsername,
   } = useInput(isNotEmpty);
 
   let navigate = useNavigate();
 
   const playClickHandler = () => {
-    if (usernameValid) {
+    // If username is not touched, manually trigger validation (will modify usernameHasError)
+    if (!usernameTouched) {
+      validateUsername();
+    }
+    // If username has been touched and has no errors, continue
+    else if (!usernameHasError) {
       navigate('/play');
     }
-    console.log('Invalid');
   };
 
   const highscoresClickHandler = () => {
@@ -36,24 +42,27 @@ const GameMenu = () => {
   };
 
   return (
-    <div className={classes.Container}>
-      <div className={classes.InputMenuItem}>
-        <label htmlFor='username'>Username</label>
+    <div className={styles.Container}>
+      <div className={styles.InputMenuItem}>
+        <label htmlFor='username' className={`${usernameHasError && styles.InvalidLabel}`}>
+          Username
+        </label>
         <TextInput
           id='username'
-          placeholder='Enter username...'
           value={username}
           onChange={usernameChangeHandler}
+          onBlur={usernameBlurHandler}
+          className={`${usernameHasError && styles.InvalidInput}`}
         />
       </div>
-      <div className={classes.InputMenuItem}>
+      <div className={styles.InputMenuItem}>
         <label htmlFor='board-size'>Board size</label>
         <Select id='board-size' options={boardSizes} />
       </div>
-      <div className={classes.MenuItem}>
+      <div className={styles.MenuItem}>
         <PrimaryButton text='Play' onClick={playClickHandler} />
       </div>
-      <div className={classes.MenuItem}>
+      <div className={styles.MenuItem}>
         <PrimaryButton text='Highscores' onClick={highscoresClickHandler} />
       </div>
     </div>

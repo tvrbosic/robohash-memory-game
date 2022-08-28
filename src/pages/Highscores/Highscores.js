@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import classes from './Highscores.module.css';
+import styles from './Highscores.module.css';
 import PrimaryButton from '../../components/PrimaryButton';
 
 const samplePlayerScores = [
@@ -19,14 +19,14 @@ const Highscores = () => {
   };
 
   return (
-    <div className={classes.Container}>
-      <div className={classes.Content}>
-        <h1 className={classes.Heading}>Highscores</h1>
+    <div className={styles.Container}>
+      <div className={styles.Content}>
+        <h1 className={styles.Heading}>Highscores</h1>
         <p>Describe how is player score calculated.</p>
-        <ul className={classes.ScoresTable}>
+        <ul className={styles.ScoresTable}>
           {samplePlayerScores.map((item, index) => {
             return (
-              <li key={item.id} className={classes.PlayerRecord}>
+              <li key={item.id} className={styles.PlayerRecord}>
                 <span>{index + 1}</span>
                 <span>{item.username}</span>
                 <span>{item.score}</span>

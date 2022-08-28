@@ -1,13 +1,13 @@
-import classes from './Game.module.css';
+import styles from './Game.module.css';
 import StatusPanel from './StatusPanel';
 import Grid from './Board/Grid';
 import ControlsPanel from './ControlsPanel';
 
 const Game = () => {
   return (
-    <div className={classes.Container}>
+    <div className={styles.Container}>
       <StatusPanel />
-      <div className={classes.Content}>
+      <div className={styles.Content}>
         <Grid />
         <ControlsPanel />
       </div>

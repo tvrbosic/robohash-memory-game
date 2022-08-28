@@ -22,6 +22,16 @@
 .MenuItem {
   margin-bottom: 1rem;
 }
+
 .MenuItem:last-child {
   margin-bottom: 0;
 }
+
+.InvalidLabel {
+  color: var(--danger);
+}
+
+.InvalidInput {
+  border: 1px solid var(--danger) !important;
+  background-color: #fddddd;
+} 

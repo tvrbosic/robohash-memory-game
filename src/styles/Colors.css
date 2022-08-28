@@ -1,4 +1,10 @@
 :root {
+  /* General */
+  --danger:  #d80000;
+  --warning: #d8d400;
+  --success: #68d800;
+  
+  /* Theme */
   --blue1: #03045e;
   --blue2: #0077b6;
   --blue3: #00b4d8;
