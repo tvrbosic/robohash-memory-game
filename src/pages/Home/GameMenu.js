@@ -7,6 +7,7 @@ import TextInput from '../../components/Input';
 import Select from '../../components/Select';
 import Button from '../../components/Button';
 import { gameActions } from '../../store/game-slice';
+import { useState } from 'react';
 
 const boardSizes = [
   { id: 1, value: 16, text: '16 cards' },
@@ -25,12 +26,13 @@ const GameMenu = () => {
     onBlur: usernameBlurHandler,
     validate: validateUsername,
   } = useInput(isNotEmpty);
+  const [cardCount, setCardCount] = useState(16);
 
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
   const selectBoardSizeHandler = (event) => {
-    dispatch(gameActions.setCardsCount(event.target.value));
+    setCardCount(event.target.value);
   };
 
   const playClickHandler = () => {
@@ -41,10 +43,10 @@ const GameMenu = () => {
     // If username has been touched and has no errors, continue
     else if (!usernameHasError) {
       dispatch(gameActions.setPlayer(username));
+      dispatch(gameActions.setCardsCount(cardCount));
       navigate('/play');
     }
   };
-
 
   const highscoresClickHandler = () => {
     navigate('/highscores');
