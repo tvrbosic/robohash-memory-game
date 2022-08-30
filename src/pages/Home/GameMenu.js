@@ -1,15 +1,17 @@
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import styles from './GameMenu.module.css';
 import useInput from '../../hooks/use-input';
 import TextInput from '../../components/Input';
 import Select from '../../components/Select';
 import Button from '../../components/Button';
+import { gameActions } from '../../store/game-slice';
 
 const boardSizes = [
-  { id: 1, size: 'Small: 4x4' },
-  { id: 2, size: 'Medium: 6x4' },
-  { id: 3, size: 'Large: 6x6' },
+  { id: 1, value: 16, text: '16 cards' },
+  { id: 2, value: 24, text: '24 cards' },
+  { id: 3, value: 36, text: '36 cards' },
 ];
 
 const isNotEmpty = (value) => value.trim() !== '';
@@ -25,6 +27,11 @@ const GameMenu = () => {
   } = useInput(isNotEmpty);
 
   let navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const selectBoardSizeHandler = (event) => {
+    dispatch(gameActions.setCardsCount(event.target.value));
+  };
 
   const playClickHandler = () => {
     // If username is not touched, manually trigger validation (will modify usernameHasError)
@@ -33,9 +40,11 @@ const GameMenu = () => {
     }
     // If username has been touched and has no errors, continue
     else if (!usernameHasError) {
+      dispatch(gameActions.setPlayer(username));
       navigate('/play');
     }
   };
+
 
   const highscoresClickHandler = () => {
     navigate('/highscores');
@@ -57,7 +66,7 @@ const GameMenu = () => {
       </div>
       <div className={styles.InputMenuItem}>
         <label htmlFor='board-size'>Board size</label>
-        <Select id='board-size' options={boardSizes} />
+        <Select id='board-size' options={boardSizes} onChange={selectBoardSizeHandler} />
       </div>
       <div className={styles.MenuItem}>
         <Button text='Play' onClick={playClickHandler} />

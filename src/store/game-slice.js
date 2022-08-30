@@ -2,16 +2,19 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   player: '',
-  boardWidth: 4,
-  boardHeight: 4,
+  cardsCount: 16,
 };
 
 export const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    setPlayer: (state, action) => {},
-    setBoardSize: (state, action) => {},
+    setPlayer: (state, action) => {
+      state.player = action.payload;
+    },
+    setCardsCount: (state, action) => {
+      state.cardsCount = action.payload;
+    },
     setMoveCount: (state, action) => {},
     setElapsedTime: (state, action) => {},
     setPlayerScore: (state, action) => {},
