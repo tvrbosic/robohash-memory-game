@@ -1,6 +1,19 @@
 .Container {
   display: grid;
+  grid-gap: .5rem;
+}
+
+.Grid-4x4 {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  grid-gap: .5rem;
+}
+
+.Grid-6x4 {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.Grid-6x6 {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 }
