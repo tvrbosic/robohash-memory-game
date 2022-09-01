@@ -1,13 +1,13 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import styles from './GameMenu.module.css';
+import { gameActions } from '../../store/game-slice';
 import useInput from '../../hooks/use-input';
 import TextInput from '../../components/Input';
 import Select from '../../components/Select';
 import Button from '../../components/Button';
-import { gameActions } from '../../store/game-slice';
-import { useState } from 'react';
 
 const boardSizes = [
   { id: 1, value: 16, text: '16 cards' },
@@ -42,10 +42,15 @@ const GameMenu = () => {
     }
     // If username has been touched and has no errors, continue
     else if (!usernameHasError) {
+      // Set data
       dispatch(gameActions.setPlayer(username));
       dispatch(gameActions.setCardsCount(cardCount));
+      // Clear previous games data
       dispatch(gameActions.resetActiveCards());
       dispatch(gameActions.resetMatchedCards());
+      dispatch(gameActions.resetMovesCounter());
+      
+      
       navigate('/play');
     }
   };

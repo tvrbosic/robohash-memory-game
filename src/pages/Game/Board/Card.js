@@ -36,7 +36,7 @@ const Card = (props) => {
       setIsActive((previousIsActive) => {
         return !previousIsActive;
       });
-      dispatch(gameActions.setActiveCard(props.hash));
+      dispatch(gameActions.addActiveCard(props.hash));
     }
   };
 

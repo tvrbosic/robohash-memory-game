@@ -32,7 +32,7 @@ const Game = () => {
 
   useEffect(() => {
     let cardEffectDelay;
-    // Check match if there are two active cards
+    // If there are two active cards: check match, increase moves counter
     if (activeCards.length === 2) {
       if (activeCards[0] === activeCards[1]) {
         // Cards match
@@ -46,6 +46,8 @@ const Game = () => {
           dispatch(gameActions.resetActiveCards());
         }, 1500);
       }
+      // Increase moves counter by one
+      dispatch(gameActions.incrementMovesCounter());
     }
     return () => {
       clearTimeout(cardEffectDelay);
