@@ -5,6 +5,11 @@
   width: 200px;
   background-color: transparent;
   perspective: 500px;
+  transition: all 0.3s;
+}
+
+.Card.Matched {
+  opacity: 0;
 }
 
 .Content {

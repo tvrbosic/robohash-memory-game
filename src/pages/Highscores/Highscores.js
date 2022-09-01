@@ -37,7 +37,7 @@ const Highscores = () => {
           </div>
           {sortedPlayerScores(samplePlayerScores).map((item, index) => {
             return (
-              <div className={styles.TableItem}>
+              <div className={styles.TableItem} key={index}>
                 <div className={styles.LeftColumn}>{index + 1}</div>
                 <div className={styles.CenterColumn}>{item.username}</div>
                 <div className={styles.RightColumn}>{item.score}</div>

@@ -44,6 +44,8 @@ const GameMenu = () => {
     else if (!usernameHasError) {
       dispatch(gameActions.setPlayer(username));
       dispatch(gameActions.setCardsCount(cardCount));
+      dispatch(gameActions.resetActiveCards());
+      dispatch(gameActions.resetMatchedCards());
       navigate('/play');
     }
   };
