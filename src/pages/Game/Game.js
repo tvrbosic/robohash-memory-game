@@ -56,7 +56,7 @@ const Game = () => {
 
   return (
     <div className={styles.Container}>
-      <StatusPanel />
+      <StatusPanel boardSize={boardSize}/>
       <div className={styles.Content}>
         <Grid boardSize={boardSize} cardHashes={cardHashes} />
         <ControlsPanel />

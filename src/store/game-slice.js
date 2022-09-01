@@ -37,7 +37,6 @@ export const gameSlice = createSlice({
       state.movesCounter = 0;
     },
     setElapsedTime: (state, action) => {},
-    setPlayerScore: (state, action) => {},
   },
 });
 
