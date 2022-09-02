@@ -1,9 +1,7 @@
-@import '../../styles/Colors.css';
+@import '../../../styles/Colors.css';
 
 .Container {
-  display: grid;
-  grid-auto-flow: column;
-  grid-column-gap: 1rem;
+  
   padding: .75rem;
   margin-top: 1rem;
   color: white;

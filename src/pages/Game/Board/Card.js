@@ -52,6 +52,7 @@ const Card = (props) => {
             src={`https://robohash.org/${props.hash}.png?size=200x200`}
             className={styles.Image}
             alt={`Card hash: ${props.hash}`}
+            loading='lazy'
           />
         </div>
       </div>

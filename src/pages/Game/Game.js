@@ -7,7 +7,7 @@ import { gameActions } from '../../store/game-slice';
 import shuffleArray from '../../utility/shuffle-array';
 import StatusPanel from './StatusPanel';
 import Grid from './Board/Grid';
-import ControlsPanel from './ControlsPanel';
+import ControlsPanel from './ControlsPanel/ControlsPanel';
 
 const Game = () => {
   const [cardHashes, setCardHashes] = useState([]);
