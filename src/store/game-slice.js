@@ -6,6 +6,7 @@ const initialState = {
   activeCards: [],
   matchedCards: [],
   movesCounter: 0,
+  progress: 0,
 };
 
 export const gameSlice = createSlice({
@@ -26,16 +27,18 @@ export const gameSlice = createSlice({
     },
     setMatchedCard: (state, action) => {
       state.matchedCards.push(action.payload);
+      state.progress = ((state.matchedCards.length * 2) / state.cardsCount) * 100;
     },
     resetMatchedCards: (state) => {
       state.matchedCards = [];
+      state.progress = 0;
     },
     incrementMovesCounter: (state) => {
       state.movesCounter++;
     },
     resetMovesCounter: (state) => {
       state.movesCounter = 0;
-    }
+    },
   },
 });
 

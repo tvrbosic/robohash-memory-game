@@ -9,24 +9,33 @@ import SuccessModal from './SuccessModal';
 
 const StatusPanel = (props) => {
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [gameInProgress, setGameInProgress] = useState(true);
   const playerMoves = useSelector((state) => state.game.movesCounter);
-  const numberOfMatches = useSelector((state) => state.game.matchedCards.length);
+  const playerProgress = useSelector((state) => state.game.progress);
 
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
-  const progress = ((numberOfMatches * 2) / props.boardSize) * 100;
-  const displaySuccessModal = progress >= 100 ? true : false;
-
   useEffect(() => {
-    let gameTimer = setInterval(() => {
-      setElapsedTime((prevTime) => prevTime + 1);
-    }, 1000);
+    let gameTimer;
+    if (gameInProgress) {
+      gameTimer = setInterval(() => {
+        setElapsedTime((prevTime) => prevTime + 1);
+      }, 1000);
+    } else {
+      clearInterval(gameTimer);
+    }
 
     return () => {
       clearInterval(gameTimer);
     };
-  }, []);
+  }, [gameInProgress]);
+
+  useEffect(() => {
+    if (playerProgress >= 100) {
+      setGameInProgress(false);
+    }
+  }, [playerProgress]);
 
   const renderTime = () => {
     let seconds = ('0' + Math.floor(elapsedTime % 60)).slice(-2);
@@ -53,10 +62,10 @@ const StatusPanel = (props) => {
     <div className={styles.Container}>
       <div>Moves: {playerMoves}</div>
       <div>Elapsed time: {renderTime()}</div>
-      <div>Progress: {progress.toFixed(1)}%</div>
-      {displaySuccessModal && (
+      <div>Progress: {playerProgress.toFixed(1)}%</div>
+      {!gameInProgress && (
         <Modal>
-          <SuccessModal onConfirm={successConfirmHandler} playerScore={calculateScore()}/>
+          <SuccessModal onConfirm={successConfirmHandler} playerScore={calculateScore()} />
         </Modal>
       )}
     </div>
