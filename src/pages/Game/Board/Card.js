@@ -31,6 +31,8 @@ const Card = (props) => {
 
 
   const cardClickHandler = () => {
+    // Disable click on matched cards
+    if (isMatched) return;
     // Enable click only if less than two cards are active
     if (activeCardsCount < 2) {
       setIsActive((previousIsActive) => {
