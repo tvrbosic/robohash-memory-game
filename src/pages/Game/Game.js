@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import styles from './Game.module.css';
 import { gameActions } from '../../store/game-slice';
 import shuffleArray from '../../utility/shuffle-array';
-import StatusPanel from './StatusPanel';
+import StatusPanel from './StatusPanel/StatusPanel';
 import Grid from './Board/Grid';
 import ControlsPanel from './ControlsPanel/ControlsPanel';
 

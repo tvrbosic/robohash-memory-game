@@ -1,4 +1,4 @@
-@import '../../styles/Colors.css';
+@import '../../../styles/Colors.css';
 
 .Container {
   display: flex;
@@ -6,7 +6,4 @@
   padding: 1rem;
   color: white;
   background-color: var(--blue2);
-}
-
-.PanelItem {
 }
