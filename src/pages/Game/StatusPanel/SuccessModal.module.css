@@ -1,11 +1,22 @@
+@import '../../../styles/Colors.css';
+
 .Container {
   padding: 1rem;
 }
 
-.Text {
+.Message {
   margin: 2rem 0;
   font-size: 1.2rem;
   text-align: center;
+}
+
+.Heading {
+  color: var(--red1);
+}
+
+.Score {
+  font-weight: bold;
+  color: var(--green1);
 }
 
 .Controls {
