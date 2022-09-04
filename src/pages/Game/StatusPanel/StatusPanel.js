@@ -4,16 +4,19 @@ import { useNavigate } from 'react-router-dom';
 
 import styles from './StatusPanel.module.css';
 import { gameActions } from '../../../store/game-slice';
+import useHttpRequest from '../../../hooks/use-http-request';
 import Modal from '../../../components/Modal';
 import SuccessModal from './SuccessModal';
 
 const StatusPanel = (props) => {
   const [elapsedTime, setElapsedTime] = useState(0);
   const [gameInProgress, setGameInProgress] = useState(true);
+  const player = useSelector((state) => state.game.player);
   const playerMoves = useSelector((state) => state.game.movesCounter);
   const playerProgress = useSelector((state) => state.game.progress);
 
   const dispatch = useDispatch();
+  const { sendRequest } = useHttpRequest(); // Extract and handle isLoading & error
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -53,8 +56,31 @@ const StatusPanel = (props) => {
     dispatch(gameActions.setPlayer(''));
     dispatch(gameActions.resetMatchedCards());
     dispatch(gameActions.resetMovesCounter());
-    // TODO: send result to backend
 
+    let boardSize;
+    switch (props.boardSize) {
+      case 16:
+        boardSize = 'S';
+        break;
+      case 24:
+        boardSize = 'M';
+        break;
+      case 36:
+        boardSize = 'L';
+        break;
+      default:
+        boardSize = 'S';
+        break;
+    }
+    // Send result to backend
+    sendRequest({
+      url: 'http://localhost:3001/highscores',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: { player: player, score: calculateScore(), board: boardSize },
+    });
     navigate('/highscores');
   };
 
