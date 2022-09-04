@@ -16,6 +16,7 @@
 .Heading {
   margin-top: 0rem;
   text-align: center;
+  color: var(--blue1);
 }
 
 .Description {

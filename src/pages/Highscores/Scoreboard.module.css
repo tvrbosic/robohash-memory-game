@@ -1,0 +1,47 @@
+
+.Container {
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.Header,
+.Item {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  min-width: 20rem;
+  padding: 0.8rem 1rem;
+}
+
+.Header {
+  font-weight: bold;
+  color: white;
+  background-color: var(--blue1);
+  border-radius: 0.4rem 0.4rem 0 0;
+}
+
+.Item {
+  padding: 0.5rem 1rem;
+}
+
+.Item:nth-child(2n + 1) {
+  background-color: var(--gray3);
+}
+
+.LeftColumn {
+  text-align: left;
+}
+
+.CenterColumn {
+  text-align: center;
+}
+
+.RightColumn {
+  text-align: right;
+}
+
+.ButtonsPanel {
+  margin-top: 1.25rem;
+  grid-column: 1 / span 3;
+}

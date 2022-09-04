@@ -3,16 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import { FadeLoader } from 'react-spinners';
 
 import styles from './Highscores.module.css';
-import Button from '../../components/Button';
 import useHttpRequest from '../../hooks/use-http-request';
+import Scoreboard from './Scoreboard';
+import FetchError from './FetchError';
 
 const spinnerStyle = {
   margin: '10rem auto',
-}
+};
 
 const Highscores = () => {
   const [playerHighscores, setPlayerHighscores] = useState([]);
-  const { isLoading, sendRequest } = useHttpRequest(); // Extract and handle isLoading & error
+  const { isLoading, error, sendRequest } = useHttpRequest(); // Extract and handle isLoading & error
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -34,27 +35,10 @@ const Highscores = () => {
         <h1 className={styles.Heading}>Highscores</h1>
         <p className={styles.Description}>Describe how is player score calculated.</p>
         <FadeLoader color={'navy'} loading={isLoading} cssOverride={spinnerStyle} size={150} />
-        {!isLoading && (
-          <div className={styles.ScoresTable}>
-            <div className={styles.TableHeader}>
-              <div className={styles.LeftColumn}>Position</div>
-              <div className={styles.CenterColumn}>Player</div>
-              <div className={styles.RightColumn}>Score</div>
-            </div>
-            {playerHighscores.map((item, index) => {
-              return (
-                <div className={styles.TableItem} key={index}>
-                  <div className={styles.LeftColumn}>{index + 1}</div>
-                  <div className={styles.CenterColumn}>{item.player}</div>
-                  <div className={styles.RightColumn}>{item.score}</div>
-                </div>
-              );
-            })}
-            <div className={styles.ButtonsPanel}>
-              <Button text='Return to menu' onClick={returnClickHandler} />
-            </div>
-          </div>
+        {!isLoading && !error && (
+          <Scoreboard playerHighscores={playerHighscores} onReturnClick={returnClickHandler} />
         )}
+        {!isLoading && error && <FetchError onReturnClick={returnClickHandler} />}
       </div>
     </div>
   );
