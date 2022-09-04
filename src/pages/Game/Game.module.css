@@ -1,7 +1,8 @@
-.Container {
-  height: 100vh;
-}
-
 .Content {
   padding: 1rem 1rem 0 1rem;
+}
+
+.Controls {
+  height: 2.5rem;
+  margin: 1.5rem auto;
 }

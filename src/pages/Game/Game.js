@@ -9,13 +9,15 @@ import useHttpRequest from '../../hooks/use-http-request';
 import shuffleArray from '../../utility/shuffle-array';
 import StatusPanel from './StatusPanel';
 import Grid from './Board/Grid';
-import ControlsPanel from './ControlsPanel/ControlsPanel';
+import Button from '../../components/Button';
 import Modal from '../../components/Modal';
+import ExitModal from './ExitModal';
 import SuccessModal from './SuccessModal';
 
 const Game = () => {
   const [cardHashes, setCardHashes] = useState([]);
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [displayExitModal, setDisplayExitModal] = useState(false);
   const [gameInProgress, setGameInProgress] = useState(true);
   const boardSize = parseInt(useSelector((state) => state.game.cardsCount));
   const player = useSelector((state) => state.game.player);
@@ -131,8 +133,26 @@ const Game = () => {
     navigate('/highscores');
   };
 
+  const exitClickHandler = () => {
+    setDisplayExitModal(true);
+  };
+
+  const hideExitModalHandler = () => {
+    setDisplayExitModal(false);
+  };
+
+  const confirmExitHandler = () => {
+    // Reset game data
+    dispatch(gameActions.setPlayer(''));
+    dispatch(gameActions.resetMatchedCards());
+    dispatch(gameActions.resetMovesCounter());
+    dispatch(gameActions.resetScore());
+
+    navigate('/');
+  };
+
   return (
-    <div className={styles.Container}>
+    <div>
       <StatusPanel
         playerMoves={playerMoves}
         elapsedTime={renderTime()}
@@ -140,8 +160,15 @@ const Game = () => {
       />
       <div className={styles.Content}>
         <Grid boardSize={boardSize} cardHashes={cardHashes} />
-        <ControlsPanel />
+        <div className={styles.Controls}>
+          <Button text='Exit' onClick={exitClickHandler} />
+        </div>
       </div>
+      {displayExitModal && (
+        <Modal onClose={hideExitModalHandler}>
+          <ExitModal onConfirm={confirmExitHandler} onClose={hideExitModalHandler} />
+        </Modal>
+      )}
       {!gameInProgress && (
         <Modal>
           <SuccessModal onConfirm={successConfirmHandler} playerScore={playerScore} />
