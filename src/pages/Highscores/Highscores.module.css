@@ -8,9 +8,9 @@
 .Content {
   position: absolute;
   left: 50%;
-  top: 45%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  top: 2rem;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .Heading {
