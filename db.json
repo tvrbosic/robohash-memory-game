@@ -2,62 +2,62 @@
   "highscores": [
     {
       "id": 1,
-      "player": "Player1",
-      "score": 375,
+      "player": "EVA",
+      "score": 5168,
       "board": "S"
     },
     {
       "id": 2,
-      "player": "Player2",
-      "score": 420,
+      "player": "Terminator",
+      "score": 6827,
       "board": "S"
     },
     {
       "id": 3,
-      "player": "Player3",
-      "score": 149,
+      "player": "C-3PO",
+      "score": 4299,
       "board": "M"
     },
     {
       "id": 4,
-      "player": "Player4",
-      "score": 224,
+      "player": "RAM",
+      "score": 4731,
       "board": "S"
     },
     {
       "id": 5,
-      "player": "Player5",
-      "score": 465,
+      "player": "Data",
+      "score": 7249,
       "board": "M"
     },
     {
       "id": 6,
-      "player": "Player6",
-      "score": 288,
+      "player": "Screwie",
+      "score": 5024,
       "board": "S"
     },
     {
       "id": 7,
-      "player": "Player7",
-      "score": 390,
+      "player": "Rusty",
+      "score": 6442,
       "board": "L"
     },
     {
       "id": 8,
-      "player": "Player8",
-      "score": 547,
+      "player": "R2D2",
+      "score": 7761,
       "board": "S"
     },
     {
       "id": 9,
-      "player": "Player9",
-      "score": 648,
+      "player": "Skynet",
+      "score": 9759,
       "board": "L"
     },
     {
       "id": 10,
-      "player": "Player10",
-      "score": 114,
+      "player": "Scrap",
+      "score": 3556,
       "board": "S"
     }
   ]

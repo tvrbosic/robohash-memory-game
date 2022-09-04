@@ -19,6 +19,7 @@ const ControlsPanel = () => {
     dispatch(gameActions.setPlayer(''));
     dispatch(gameActions.resetMatchedCards());
     dispatch(gameActions.resetMovesCounter());
+    dispatch(gameActions.resetScore());
 
     navigate('/');
   };

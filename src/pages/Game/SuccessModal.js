@@ -1,5 +1,5 @@
 import styles from './SuccessModal.module.css';
-import Button from '../../../components/Button';
+import Button from '../../components/Button';
 
 const BackModal = (props) => {
   return (
