@@ -1,27 +1,27 @@
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './Highscores.module.css';
 import Button from '../../components/Button';
-
-const samplePlayerScores = [
-  { id: 1, username: 'Player1', score: 375 },
-  { id: 2, username: 'Player2', score: 420 },
-  { id: 3, username: 'Player3', score: 149 },
-  { id: 4, username: 'Player4', score: 224 },
-  { id: 5, username: 'Player5', score: 114 },
-];
+import useHttpRequest from '../../hooks/use-http-request';
 
 const Highscores = () => {
+  const [playerHighscores, setPlayerHighscores] = useState([]);
+  const { sendRequest } = useHttpRequest(); // Extract and handle isLoading & error
   let navigate = useNavigate();
+
+
+  useEffect(() => {
+    sendRequest(
+      {
+        url: 'http://localhost:3001/highscores?_sort=score&_order=desc&_start=0&_end=10',
+      },
+      setPlayerHighscores
+    );
+  }, [sendRequest]);
 
   const returnClickHandler = () => {
     navigate('/');
-  };
-
-  const sortedPlayerScores = (playerScores) => {
-    return playerScores.sort((a, b) => {
-      return b.score - a.score;
-    });
   };
 
   return (
@@ -35,11 +35,11 @@ const Highscores = () => {
             <div className={styles.CenterColumn}>Player</div>
             <div className={styles.RightColumn}>Score</div>
           </div>
-          {sortedPlayerScores(samplePlayerScores).map((item, index) => {
+          {playerHighscores.map((item, index) => {
             return (
               <div className={styles.TableItem} key={index}>
                 <div className={styles.LeftColumn}>{index + 1}</div>
-                <div className={styles.CenterColumn}>{item.username}</div>
+                <div className={styles.CenterColumn}>{item.player}</div>
                 <div className={styles.RightColumn}>{item.score}</div>
               </div>
             );

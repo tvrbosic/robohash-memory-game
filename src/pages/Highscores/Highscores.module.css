@@ -14,40 +14,42 @@
 }
 
 .Heading {
-  margin-top: 0rem;
+  margin: 0 0 0.75rem 0;
   text-align: center;
 }
 
 .Description {
-  margin-bottom: 3rem;
+  margin: 0 0 1rem 0;
   text-align: center;
 }
 
 .ScoresTable {
-  padding: 2rem;
-  border-radius: .5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.TableHeader, .TableItem {
+.TableHeader,
+.TableItem {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   min-width: 20rem;
-  padding: 1rem;
+  padding: 0.8rem 1rem;
 }
 
 .TableHeader {
   font-weight: bold;
   color: white;
   background-color: var(--blue1);
+  border-radius: 0.4rem 0.4rem 0 0;
 }
 
 .TableItem {
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
-.TableItem:nth-child(2n) {
+.TableItem:nth-child(2n + 1) {
   background-color: var(--gray3);
 }
 
@@ -64,7 +66,6 @@
 }
 
 .ButtonsPanel {
-  margin-top: 3rem;
+  margin-top: 1.25rem;
   grid-column: 1 / span 3;
-
 }
