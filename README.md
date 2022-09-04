@@ -11,5 +11,5 @@ Memory game which generates cards using [RoboHash Web Service](https://robohash.
 ## npm packages used
 - [Redux Toolkit ](https://redux-toolkit.js.org/)
 - [React Router](https://reactrouter.com/en/main)
-- [Json Server](https://github.com/typicode/json-server)and testing
+- [Json Server](https://github.com/typicode/json-server)
 - [UUID](https://www.npmjs.com/package/uuid)
