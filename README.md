@@ -6,7 +6,7 @@ Application was created with [React](https://reactjs.org/), backend is simulated
 ## Usage
 1. Clone repository: `git clone git@github.com:tvrbosic/robohash-memory-game.git`
 2. Install npm packages: `cd robohash-memory-game && npm install`
-3. Run json-server: `npx json-server --watch db.json --port 3001`
+3. Run json-server: `npx json-server --watch db.json --port 3001 --delay 300`
 4. Run app: `npm start`
 
 
