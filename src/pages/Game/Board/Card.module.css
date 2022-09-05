@@ -1,8 +1,8 @@
 @import '../../../styles/Colors.css';
 
 .Card {
-  height: 150px;
-  width: 200px;
+  height: 100%;
+  width: 100%;
   background-color: transparent;
   perspective: 500px;
   transition: all 0.3s;
@@ -50,4 +50,5 @@
   display: block;
   margin: auto;
   max-height: 100%;
+  object-fit: contain;
 }

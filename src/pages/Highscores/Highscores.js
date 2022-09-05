@@ -8,7 +8,7 @@ import Scoreboard from './Scoreboard';
 import FetchError from './FetchError';
 
 const spinnerStyle = {
-  margin: '10rem auto',
+  margin: '14rem auto',
 };
 
 const Highscores = () => {
@@ -33,7 +33,6 @@ const Highscores = () => {
     <div className={styles.Container}>
       <div className={styles.Content}>
         <h1 className={styles.Heading}>Highscores</h1>
-        <p className={styles.Description}>Describe how is player score calculated.</p>
         <FadeLoader color={'navy'} loading={isLoading} cssOverride={spinnerStyle} size={150} />
         {!isLoading && !error && (
           <Scoreboard playerHighscores={playerHighscores} onReturnClick={returnClickHandler} />

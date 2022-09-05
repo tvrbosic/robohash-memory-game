@@ -1,8 +1,25 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-bottom: 1rem;
+}
+
 .Content {
-  padding: 1rem 1rem 0 1rem;
+  flex-grow: 1;
+  padding: 1rem;
+  width: 65%;
+  margin: 0 auto;
+  width: 70%;
 }
 
 .Controls {
   height: 2.5rem;
-  margin: 1.5rem auto;
+  margin: 1.5rem auto 1rem auto;
+}
+
+@media only screen and (min-width: 1280px) {
+  .Content {
+    width: 60%;
+  }
 }

@@ -8,17 +8,12 @@
 .Content {
   position: absolute;
   left: 50%;
-  top: 2rem;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
+  top: 45%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .Heading {
-  margin: 0 0 0.75rem 0;
-  text-align: center;
-}
-
-.Description {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.5rem 0;
   text-align: center;
 }

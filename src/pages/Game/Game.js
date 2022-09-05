@@ -152,7 +152,7 @@ const Game = () => {
   };
 
   return (
-    <div>
+    <div className={styles.Container}>
       <StatusPanel
         playerMoves={playerMoves}
         elapsedTime={renderTime()}
