@@ -29,7 +29,6 @@
 .Front,
 .Back {
   position: absolute;
-  box-sizing: border-box;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
@@ -41,14 +40,14 @@
 }
 
 .Back {
+  left: -6px;
   background-color: var(--gray3);
   border: 0.2rem solid var(--blue1);
   transform: rotateY(180deg);
 }
 
 .Image {
-  display: block;
-  margin: auto;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
