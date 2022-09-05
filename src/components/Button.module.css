@@ -1,19 +1,59 @@
 @import '../styles/Colors.css';
 
-.PrimaryButton {
+.Button {
   width: 100%;
   height: 100%;
   font-size: 1rem;
   line-height: 2.2rem;
   color: white;
-  background-color: var(--blue2);
   border: none;
   border-radius: 1rem;
-  transition: ease-in-out .3s;
+  transition: ease-in-out 0.3s;
 }
 
-
-.PrimaryButton:hover {
-  background-color: var(--blue1);
+.Button:hover {
   cursor: pointer;
+}
+
+.Primary {
+  background-color: var(--blue2);
+}
+.Primary:hover {
+  background-color: var(--blue1);
+}
+
+.Secondary {
+  background-color: var(--gray2);
+}
+.Secondary:hover {
+  background-color: var(--gray1);
+}
+
+.Success {
+  background-color: var(--green2);
+}
+.Success:hover {
+  background-color: var(--green1);
+}
+
+.Danger {
+  background-color: var(--red2);
+}
+.Danger:hover {
+  background-color: var(--red1);
+}
+
+.Warning {
+  color: black;
+  background-color: var(--yellow2);
+}
+.Warning:hover {
+  background-color: var(--yellow1);
+}
+
+.Info {
+  background-color: var(--blue3);
+}
+.Info:hover {
+  background-color: var(--blue2);
 }

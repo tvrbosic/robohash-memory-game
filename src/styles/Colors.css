@@ -1,18 +1,18 @@
 :root {
   /* General */
-  --red1: #d80000;
-  --red2: #ff6e6e;
+  --red1: #b30000;
+  --red2: #db0e0e;
   --red3: #fddddd;
-  --green1: #00ad3a;
-  --green2: #5de78b;
-  --green3: #befcd3;
+  --green1: #158830;
+  --green2: #27a744;
+  --green3: #61ce7b;
   --blue1: #03045e;
   --blue2: #0077b6;
   --blue3: #00b4d8;
-  --yellow1: #d8ca00;
-  --yellow2: #f1fa75;
-  --yellow3: #f8fcbe;
-  --gray1: #6c757d;
-  --gray2: #adb5bd;
+  --yellow1: #e4ab00;
+  --yellow2: #ffc107;
+  --yellow3: #ffda6a;
+  --gray1: #575c61;
+  --gray2: #8b9299;
   --gray3: #e9ecef;
 }

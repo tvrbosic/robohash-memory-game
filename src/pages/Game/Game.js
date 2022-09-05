@@ -90,6 +90,8 @@ const Game = () => {
     return () => {
       clearTimeout(cardEffectDelay);
     };
+    // elapsedTime removed from dependencies array
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeCards, dispatch]);
 
   const renderTime = () => {

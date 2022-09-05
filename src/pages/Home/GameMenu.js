@@ -15,7 +15,7 @@ const boardSizes = [
   { id: 3, value: 36, text: '36 cards' },
 ];
 
-const isNotEmpty = (value) => value.trim() !== '';
+const isNotEmpty = (value) => value.trim().length >= 3;
 
 const GameMenu = () => {
   const {
@@ -78,7 +78,7 @@ const GameMenu = () => {
         <Select id='board-size' options={boardSizes} onChange={selectBoardSizeHandler} />
       </div>
       <div className={styles.MenuItem}>
-        <Button text='Play' onClick={playClickHandler} />
+        <Button text='Play' buttonStyle={'Success'} onClick={playClickHandler} />
       </div>
       <div className={styles.MenuItem}>
         <Button text='Highscores' onClick={highscoresClickHandler} />
