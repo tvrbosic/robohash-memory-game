@@ -1,4 +1,4 @@
-@import '../../styles/Colors.css';
+@import '../../../styles/Colors.css';
 
 .Container {
   display: flex;
@@ -7,6 +7,12 @@
   color: white;
   background-color: var(--blue2);
   font-weight: bold;
+}
+
+.ProgressContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 12rem;
 }
 
 .Value {

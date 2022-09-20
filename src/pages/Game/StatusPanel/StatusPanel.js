@@ -1,4 +1,5 @@
 import styles from './StatusPanel.module.css';
+import ProgressBar from './ProgressBar';
 
 const StatusPanel = (props) => {
   return (
@@ -9,9 +10,9 @@ const StatusPanel = (props) => {
       <div>
         Elapsed time: <span className={styles.Value}>{props.elapsedTime}</span>
       </div>
-      <div>
-        Progress:{' '}
-        <span className={styles.Value}>{props.playerProgress.toFixed(1)}%</span>
+      <div className={styles.ProgressContainer}>
+        Progress:
+        <ProgressBar value={props.playerProgress.toFixed(1)} />
       </div>
     </div>
   );

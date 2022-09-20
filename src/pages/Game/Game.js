@@ -7,7 +7,7 @@ import styles from './Game.module.css';
 import { gameActions } from '../../store/game-slice';
 import useHttpRequest from '../../hooks/use-http-request';
 import shuffleArray from '../../utility/shuffle-array';
-import StatusPanel from './StatusPanel';
+import StatusPanel from './StatusPanel/StatusPanel';
 import Grid from './Board/Grid';
 import Button from '../../components/Button';
 import Modal from '../../components/Modal';
@@ -163,17 +163,23 @@ const Game = () => {
       <div className={styles.Content}>
         <Grid boardSize={boardSize} cardHashes={cardHashes} />
         <div className={styles.Controls}>
-          <Button text='Exit' onClick={exitClickHandler} />
+          <Button text="Exit" onClick={exitClickHandler} />
         </div>
       </div>
       {displayExitModal && (
         <Modal onClose={hideExitModalHandler}>
-          <ExitModal onConfirm={confirmExitHandler} onClose={hideExitModalHandler} />
+          <ExitModal
+            onConfirm={confirmExitHandler}
+            onClose={hideExitModalHandler}
+          />
         </Modal>
       )}
       {!gameInProgress && (
         <Modal>
-          <SuccessModal onConfirm={successConfirmHandler} playerScore={playerScore} />
+          <SuccessModal
+            onConfirm={successConfirmHandler}
+            playerScore={playerScore}
+          />
         </Modal>
       )}
     </div>
