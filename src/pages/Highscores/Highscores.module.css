@@ -2,6 +2,7 @@
 
 .Container {
   min-height: 100vh;
+  padding-top: 4vh;
   background-color: var(--gray3);
 }
 
@@ -14,7 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .SelectBoardContainer label {
@@ -27,9 +28,42 @@
 }
 
 .Content {
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-height: 768px) {
+  .Container {
+    padding-top: 6vh;
+  }
+}
+
+@media (min-height: 800px) {
+  .Container {
+    padding-top: 8vh;
+  }
+}
+
+@media (min-height: 900px) {
+  .Container {
+    padding-top: 10vh;
+  }
+}
+
+@media (min-height: 1050px) {
+  .Container {
+    padding-top: 15vh;
+  }
+}
+
+@media (min-height: 1120px) {
+  .Container {
+    padding-top: 18vh;
+  }
+}
+
+@media (min-height: 1440px) {
+  .Container {
+    padding-top: 22vh;
+  }
 }

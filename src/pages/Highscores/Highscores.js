@@ -53,16 +53,16 @@ const Highscores = () => {
 
   return (
     <div className={styles.Container}>
+      <h1 className={styles.Heading}>Highscores</h1>
+      <div className={styles.SelectBoardContainer}>
+        <label htmlFor="board-size">Board size</label>
+        <Select
+          id="board-size"
+          options={boardSizes}
+          onChange={selectBoardSizeHandler}
+        />
+      </div>
       <div className={styles.Content}>
-        <h1 className={styles.Heading}>Highscores</h1>
-        <div className={styles.SelectBoardContainer}>
-          <label htmlFor="board-size">Board size</label>
-          <Select
-            id="board-size"
-            options={boardSizes}
-            onChange={selectBoardSizeHandler}
-          />
-        </div>
         <FadeLoader
           color={'navy'}
           loading={isLoading}
