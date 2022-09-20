@@ -6,4 +6,10 @@
   padding: 1rem;
   color: white;
   background-color: var(--blue2);
+  font-weight: bold;
+}
+
+.Value {
+  padding-left: 0.5rem;
+  color: var(--yellow2);
 }
