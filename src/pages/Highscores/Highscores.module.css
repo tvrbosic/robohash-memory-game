@@ -5,15 +5,31 @@
   background-color: var(--gray3);
 }
 
+.Heading {
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.SelectBoardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.SelectBoardContainer label {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.SelectBoardContainer select {
+  width: 7rem;
+}
+
 .Content {
   position: absolute;
   left: 50%;
   top: 45%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-}
-
-.Heading {
-  margin: 0 0 1.5rem 0;
-  text-align: center;
 }
