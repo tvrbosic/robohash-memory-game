@@ -22,7 +22,7 @@ const spinnerStyle = {
 const Highscores = () => {
   const [playerHighscores, setPlayerHighscores] = useState([]);
   const [boardSize, setBoardSize] = useState('A');
-  const { isLoading, error, sendRequest } = useHttpRequest(); // Extract and handle isLoading & error
+  const { isLoading, error, sendRequest } = useHttpRequest();
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -55,9 +55,9 @@ const Highscores = () => {
     <div className={styles.Container}>
       <h1 className={styles.Heading}>Highscores</h1>
       <div className={styles.SelectBoardContainer}>
-        <label htmlFor="board-size">Board size</label>
+        <label htmlFor='board-size'>Board size</label>
         <Select
-          id="board-size"
+          id='board-size'
           options={boardSizes}
           onChange={selectBoardSizeHandler}
         />

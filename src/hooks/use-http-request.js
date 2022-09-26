@@ -23,6 +23,7 @@ const useHttpRequest = () => {
 
       // Success callback (do something with returned data)
       handleData(data);
+      setError(null);
     } catch (err) {
       setError(err.message);
     }
